@@ -6,7 +6,8 @@ var firstView = Ti.UI.createView();
 
 var findBtn = Ti.UI.createButton({
 	title:'現在地を検出',
-	id:"findBtn"
+	width: 240,
+	height: 120
 });
 
 findBtn.addEventListener('click', function(e)
