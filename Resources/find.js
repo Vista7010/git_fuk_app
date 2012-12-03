@@ -30,7 +30,6 @@ function findMe() {
 	});
 	win.add(labelDist);
 
-
 	Ti.Geolocation.purpose = '現在地を取得し近くのスポットを検索するため'; // GPSの利用目的を明記
 
 	if(Ti.Platform.osname == 'android'){
