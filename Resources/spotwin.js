@@ -52,19 +52,19 @@ function spotWin(){
 	/* ヒントを表示するボタン */
 	if(Ti.Platform.osname == "iphone"){
 		var btnHint1 = Ti.UI.createButton({
-			backgroundImage:'/images/BUTT_grn_off.png',
+			backgroundImage:'/images/btnHint1.png',
 			height: 100,
 			top: 400,
 			left: 60
 		});
 		var btnHint2 = Ti.UI.createButton({
-			backgroundImage:'/images/BUTT_grn_off.png',
+			backgroundImage:'/images/btnHint1.png',
 			height: 100,
 			top: 400,
 			left: 60
 		});
 		var btnHint3 = Ti.UI.createButton({
-			backgroundImage:'/images/BUTT_grn_off.png',
+			backgroundImage:'/images/btnHint1.png',
 			height: 100,
 			top: 400,
 			left: 60
@@ -161,7 +161,7 @@ function spotWin(){
 
 	/* 残りの距離によって背景色変化 */
 	function changeBG(){
-		if (restDist != null && restDist < 370){
+		if (restDist != null && restDist < 50){
 			viewBG.backgroundColor = '#ff9999';
 			btnTsuita.left = 60;
 		}
@@ -208,12 +208,12 @@ function spotWin(){
 	};
 	
 	Ti.Geolocation.headingFilter = 90;
-	Ti.Geolocation.getCurrentHeading(function(e){
-		updateCompass(e);
+	Ti.Geolocation.addEventListener('heading',updateCompass);
+
+	spotwin.addEventListener('blur',function(){
+		Ti.Geolocation.removeEventListener('locate',locationCallback2);
+		Ti.Geolocation.removeEventListener('heading',updateCompass);
 	});
-	Ti.Geolocation.addEventListener('heading',function(e){
-		updateCompass(e);
-	})
 
 	spotwin.add(view_spotwin);
 	return spotwin;

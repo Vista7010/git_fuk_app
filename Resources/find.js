@@ -135,9 +135,14 @@ if(Ti.Platform.osname == 'android'){
 	});
 }
 
+Ti.UI.currentWindow.addEventListener('blur',function(){
+	Ti.Geolocation.removeEventListener("location",locationCallback);
+})
+
 goTableBtn.addEventListener('click', function(e){
 	Ti.App.cFinLat = cLocLat;
 	Ti.App.cFinLong = cLocLong;
+	Ti.Geolocation.removeEventListener("location",locationCallback);
 	Ti.UI.currentTab.open(Ti.UI.createWindow({url: "table.js"}));
 });
 
