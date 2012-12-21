@@ -116,7 +116,7 @@ if(Ti.Platform.osname == 'android'){
 	Titanium.Geolocation.addEventListener('location', locationCallback);
 }else if(Ti.Platform.osname == 'iphone' ){
 	/* addEventListenerでは繰り返して情報を取り出す */
-	Ti.Geolocation.addEventListener("location", function(e) {
+	var locationCallback = function(e) {
 		if (!e.success || e.error){
 			alert('位置情報が取得できませんでした');
 			return;
@@ -132,7 +132,8 @@ if(Ti.Platform.osname == 'android'){
 			latitudeDelta:0.01,
 			longitudeDelta:0.01
 		}
-	});
+	};
+	Ti.Geolocation.addEventListener("location", locationCallback);
 }
 
 Ti.UI.currentWindow.addEventListener('blur',function(){

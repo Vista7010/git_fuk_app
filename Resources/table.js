@@ -42,12 +42,12 @@ view_table.add(table);
 
 Ti.UI.currentWindow.add(view_table);
 
-/* JSONから差が4km以内だったら名前を出す */
+/* JSONから差が一定以内だったら名前を出す */
 function chkDist(cLat,cLong,spotArr){
 	var dist = 0;
 	for(var i=0;i<spotArr.length;i++){
 		dist = Math.round(calDist(cLat,cLong,spotArr[i].latitude,spotArr[i].longitude)*1000);
-		if(calDist(cLat,cLong,spotArr[i].latitude,spotArr[i].longitude) < 4.4){
+		if(calDist(cLat,cLong,spotArr[i].latitude,spotArr[i].longitude) < Ti.App.range){
 			nearData.push({nearId:spotArr[i].id,nearDist:dist});
 		}
 	}
@@ -71,7 +71,6 @@ function calDist(cLat,cLong,bLat,bLong){
 /* テーブルデータを作る */
 function createTableData(dataArr){
 	var tmpDataArr = new Array();
-	
 	//テーブルデータの作成
 	for(var i=0;i<dataArr.length;i++){
 		var tableTitle = dataArr[i].nearDist + "m先：" + Ti.App.spots.spotdata[dataArr[i].nearId].hint1;

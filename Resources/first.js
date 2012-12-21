@@ -3,24 +3,45 @@ Ti.UI.currentWindow.backgroundColor = "#fff";
 
 var view_first = Ti.UI.createView();
 
-var findBtn = Ti.UI.createButton({
-	backgroundImage:'/images/btnSagasu.png',
-	width: 360,
-	height: 120,
-	top: 120
-});
-var setteiBtn = Ti.UI.createButton({
-	backgroundImage:'/images/btnSettei.png',
-	width: 360,
-	height: 80,
-	top: 390
-});
-var asobikataBtn = Ti.UI.createButton({
-	backgroundImage:'/images/btnAsobikata.png',
-	width: 360,
-	height: 80,
-	top: 500
-});
+if(Ti.Platform.osname == "iphone"){
+	var findBtn = Ti.UI.createButton({
+		backgroundImage:'/images/btnSagasu.png',
+		width: 180,
+		height: 60,
+		top: 60
+	});
+	var setteiBtn = Ti.UI.createButton({
+		backgroundImage:'/images/btnSettei.png',
+		width: 180,
+		height: 40,
+		top: 180
+	});
+	var asobikataBtn = Ti.UI.createButton({
+		backgroundImage:'/images/btnAsobikata.png',
+		width: 180,
+		height: 40,
+		top: 250
+	});
+}else if(Ti.Platform.osname == "android"){
+	var findBtn = Ti.UI.createButton({
+		backgroundImage:'/images/btnSagasu.png',
+		width: 360,
+		height: 120,
+		top: 120
+	});
+	var setteiBtn = Ti.UI.createButton({
+		backgroundImage:'/images/btnSettei.png',
+		width: 360,
+		height: 80,
+		top: 390
+	});
+	var asobikataBtn = Ti.UI.createButton({
+		backgroundImage:'/images/btnAsobikata.png',
+		width: 360,
+		height: 80,
+		top: 500
+	});
+}
 
 view_first.add(findBtn);
 view_first.add(setteiBtn);

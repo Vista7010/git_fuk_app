@@ -10,5 +10,7 @@ if (json && json.length > 0) {
 var tab1 = Ti.UI.createTab({window: win1});
 var tabGroup = Ti.UI.createTabGroup();
 
+Ti.App.range = 0.5;
+
 tabGroup.addTab(tab1);
 tabGroup.open();
