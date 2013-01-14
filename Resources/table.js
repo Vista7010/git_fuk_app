@@ -6,6 +6,8 @@ var view_table =Ti.UI.createView();
 var nearData = new Array(); //周辺データを保管する配列
 var earth_r = 6378.137;
 
+Ti.API.info(Ti.App.spots);
+
 chkDist(Ti.App.cFinLat,Ti.App.cFinLong,Ti.App.spots.spotdata);//nearDataを操作
 
 nearData.sort(renSortFunc);//nearDataを並び替え
